@@ -44,24 +44,29 @@ public class MainActivity extends Activity {
 			
 			BigDecimal bd = new BigDecimal(FieldValue);
 			
+			String tipAmount;
+			
 			switch (v.getId()) {
 			case R.id.btnTenPct:
 				bd = bd.multiply(new BigDecimal("0.10"), mc);
+				tipAmount = "10%";
 				break;
 			case R.id.btnFifteenPct:
 				bd = bd.multiply(new BigDecimal("0.15"), mc);
+				tipAmount = "15%";
 				break;
 			case R.id.btnTwentyPct:
 				bd = bd.multiply(new BigDecimal("0.20"), mc);
+				tipAmount = "20%";
 				break;
 			default:
 				throw new RuntimeException("Unknown button ID");
 			}
 			// Fire when the button is pressed
-			Toast.makeText(this, "Tip is:  $" + bd, Toast.LENGTH_SHORT).show();
+			Toast.makeText(this, tipAmount + " tip of total amount is:  $" + bd, Toast.LENGTH_SHORT).show();
 			
 			// Change the text label
-			tvTipAmount.setText("Tip is:  $" + bd);
+			tvTipAmount.setText(tipAmount + " tip of total amount is:  $" + bd);
 		}
 	}
 
